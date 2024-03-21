@@ -11,7 +11,7 @@ import java.util.Iterator;
 public class LinesToDisplay {
 
     public static final int LINES = 10;     // Display 10 lines
-    private AList<Wordlet>[] lines;
+    private AList[] lines;
     private int currentLine;
 
     /**
@@ -19,8 +19,12 @@ public class LinesToDisplay {
      */
     public LinesToDisplay() {
         //ADD CODE FOR THE CONSTRUCTOR
-//>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>        
-        
+//>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>
+            this.currentLine = 0;
+            lines = new AList[LINES];
+            for (int i = 0; i < LINES; i++) {
+                lines[i] = new AList<Wordlet>();
+        }
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
