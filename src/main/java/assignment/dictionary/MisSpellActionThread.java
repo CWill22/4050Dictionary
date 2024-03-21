@@ -67,7 +67,13 @@ public class MisSpellActionThread implements Runnable {
         try {
 // ADD CODE HERE
 // >>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
+            input = new Scanner(new File(theFileName));
+            while (input.hasNext()) {
+                String word = input.next();
+                theDictionary.add(word, word);
+            }
+            dictionaryLoaded = true;
+            input.close();
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
          

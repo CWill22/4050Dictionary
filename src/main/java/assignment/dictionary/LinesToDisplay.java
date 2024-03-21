@@ -38,7 +38,7 @@ public class LinesToDisplay {
         //ADD CODE HERE TO ADD A WORDLET TO THE CURRENT LINE
 
 //>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>        
-       
+
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     }
 
@@ -49,7 +49,19 @@ public class LinesToDisplay {
      */
     public void nextLine() {
         //ADD CODE TO HANDLE THE NEXT LINE
-//>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>        
+//>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>
+        // Go to the next line
+        (this.currentLine)++;
+
+        // If the number of lines has exceeded LINES, shift them all up by one
+       if(this.currentLine >= LINES){
+            for (int i = 0; i < LINES - 1; i++) {
+                lines[i] = lines[i + 1];
+            }
+            lines[LINES - 1] = new AList<Wordlet>();
+            this.currentLine = LINES - 1;
+        }
+
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     }
