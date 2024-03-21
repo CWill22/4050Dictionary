@@ -36,9 +36,8 @@ public class LinesToDisplay {
      */
     public void addWordlet(Wordlet w) {
         //ADD CODE HERE TO ADD A WORDLET TO THE CURRENT LINE
-
-//>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>        
-
+//>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>
+        currentLine= getCurrentLine() + w.myWord.length();
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     }
 
