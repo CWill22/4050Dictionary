@@ -9,11 +9,6 @@ package assignment.dictionary;
 
 //
 import java.util.*;
-import java.io.*;
-import java.util.function.BiConsumer;
-import java.util.function.Function;
-import java.util.function.BiFunction;
-import java.util.LinkedList;
 /**
 
 
@@ -26,6 +21,8 @@ public class MyHashTable<K,V>
 {
     private final static int DEFAULT_CAPACITY = 25;
     private AList<V>[] mytable;
+    ArrayList<K> KeySet = new ArrayList<>();
+    ArrayList<V> ValueSet = new ArrayList<>();
     private int size = 0;
     public MyHashTable() {
         mytable = new AList[DEFAULT_CAPACITY];
@@ -36,6 +33,8 @@ public class MyHashTable<K,V>
     public V put(K key, V value) {
         int index = hash(key);
         mytable[index].add(value);
+        //ValueSet.add(value);
+        KeySet.add(key);
         size++;
         return null;
     }
@@ -57,16 +56,22 @@ public class MyHashTable<K,V>
 
 
     public boolean containsKey(Object key) {
-        int index = hash((K)key);
-        return !mytable[index].isEmpty();
+        for (K K : KeySet) {
+            if (K == key) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
-    public Iterable<Object> keySet() {
+    public Iterable<K> keySet() {
+        return KeySet;
     }
 
 
-    public Iterable<Object> values() {
+    public Iterable<V> values() {
+        return ValueSet;
     }
 
 
@@ -81,6 +86,9 @@ public class MyHashTable<K,V>
 
 
     public void clear() {
+        for (int i = 0; i<DEFAULT_CAPACITY; i++) {
+            mytable[i].clear();
+        }
     }
     public int hash(K key) {
         return (int)key % DEFAULT_CAPACITY;
