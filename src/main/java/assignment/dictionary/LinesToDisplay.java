@@ -22,6 +22,7 @@ public class LinesToDisplay {
 //>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>
             this.currentLine = 0;
             lines = new AList[LINES];
+            // Initialize the lines
             for (int i = 0; i < LINES; i++) {
                 lines[i] = new AList<Wordlet>();
         }
@@ -37,6 +38,7 @@ public class LinesToDisplay {
     public void addWordlet(Wordlet w) {
         //ADD CODE HERE TO ADD A WORDLET TO THE CURRENT LINE
 //>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>
+        //add the wordlet to the current line
         currentLine= getCurrentLine() + w.myWord.length();
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     }
@@ -57,6 +59,7 @@ public class LinesToDisplay {
             for (int i = 0; i < LINES - 1; i++) {
                 lines[i] = lines[i + 1];
             }
+            // Initialize the last line
             lines[LINES - 1] = new AList<Wordlet>();
             this.currentLine = LINES - 1;
         }
