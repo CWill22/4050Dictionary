@@ -91,23 +91,41 @@ public class MisSpellActionThread implements Runnable {
      * a single line has been read do an animation step to wait for the user.
      *
      */
-    public void checkWords(String theFileName, DictionaryInterface<String, String> theDictionary) {
-        Scanner input;
-        try {
- 
+    
+public void checkWords(String theFileName, DictionaryInterface<String, String> theDictionary) {
+       Scanner input;
+       try {
+
+
 // ADD CODE HERE
-// >>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-           
+// >>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+           input = new Scanner(new File(theFileName));
+           while (input.hasNext()) {
+               String word = input.next();
+               boolean result = checkWord(word, theDictionary);
+               Wordlet w = new Wordlet(word, result);
+               myLines.addWordlet(w);
+               showLines(myLines);
+           }
+           input.close();
+
+
+
+
+
+
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+       } catch (IOException e) {
+           System.out.println("There was an error in reading or opening the file: " + theFileName);
+           System.out.println(e.getMessage());
+       }
 
 
-        } catch (IOException e) {
-            System.out.println("There was an error in reading or opening the file: " + theFileName);
-            System.out.println(e.getMessage());
-        }
 
-    }
+
+   }
+
 
     /**
      * Check the spelling of a single word.
@@ -118,7 +136,10 @@ public class MisSpellActionThread implements Runnable {
 
         // ADD CODE HERE
 //>>>>>>>>>>> ADDED CODE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>        
-
+        //check spelling of the word, and return true if spelled correctly
+        if (theDictionary.contains(word)) {
+            result = true;
+        }
 
 
 
